@@ -80,6 +80,7 @@ def get_locale():
 
 # babel.init_app(app, locale_selector=get_locale)
 
+
 @babel.timezoneselector
 def get_timezone():
     """
@@ -92,7 +93,7 @@ def get_timezone():
             return timezone(tzone).zone
         except pytz.exceptions.UnknownTimeZoneError:
             pass
-    
+
     # Find time zone from user settings
     if g.user:
         try:
@@ -100,7 +101,7 @@ def get_timezone():
             return timezone(tzone).zone
         except pytz.exceptions.UnknownTimeZoneError:
             pass
-    
+
     # Default to UTC
     default_tz = app.config['BABEL_DEFAULT_TIMEZONE']
     return default_tz
